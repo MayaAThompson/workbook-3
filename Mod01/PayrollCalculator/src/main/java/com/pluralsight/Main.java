@@ -29,6 +29,7 @@ public class Main {
                 System.out.printf("ID: %d \nName: %s \nGross Pay: $%.2f\n\n", employees[lineIndex].getEmployeeId(), employees[lineIndex].getName(), employees[lineIndex].calculateGrossPay());
                 lineIndex++;
             }
+            bufReader.close();
         } catch (Exception e) {
             System.err.println("There was a problem: " + e.getMessage());
         }
