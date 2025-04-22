@@ -38,21 +38,23 @@ public class BedtimeStories {
         return storyFile;
     }
 
-    public static void readStory(String story) {
+    public static void readStory(String file) {
 
-        InputStream is = BedtimeStories.class.getResourceAsStream(story);
+        InputStream input = BedtimeStories.class.getResourceAsStream(file);
 
-        if (is == null) {
+        if (input == null) {
             System.out.println("story not found on classpath!");
             return;
         }
 
-        try (Scanner scanner = new Scanner(is)) {
+        try (Scanner scanner = new Scanner(input)) {
             int i = 1;
             while (scanner.hasNextLine()) {
                 System.out.println(i + ". " + scanner.nextLine());
                 i++;
             }
+        } catch (Exception e) {
+            System.out.println("you done messed up!");
         }
     }
 
